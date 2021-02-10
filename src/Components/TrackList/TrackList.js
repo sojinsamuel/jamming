@@ -5,7 +5,7 @@ import Track from '../Track/Track';
 
 
 class TrackList extends React.Component {
-     render(){
+    render(){
         return (
             <div className="TrackList">
                 {
@@ -13,6 +13,7 @@ class TrackList extends React.Component {
                         return <Track 
                             track={track}
                             key={track.id}
+                            onAdd={this.props.onAdd}
                         />
                     })
                 }
