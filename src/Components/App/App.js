@@ -24,15 +24,21 @@ class App extends React.Component {
     }
 
     this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
   
   addTrack(track){
-    const currentList = this.state.playListTracks;
-    if(currentList.find(saved => saved.id === track.id)){
+    const addList = this.state.playListTracks;
+    if(addList.find(saved => saved.id === track.id)){
       return;
     }
-    currentList.push(track);
-    this.setState({playListTracks: currentList});
+    addList.push(track);
+    this.setState({playListTracks: addList});
+  }
+
+  removeTrack(track){
+    const removeList = this.state.playListTracks.filter(current => current.id !== track.id);
+    this.setState({playListTracks: removeList});
   }
 
   render(){
@@ -47,7 +53,8 @@ class App extends React.Component {
               onAdd = {this.addTrack}/>
             <Playlist 
               playListName={this.state.playListName} 
-              playListTracks={this.state.playListTracks}/>
+              playListTracks={this.state.playListTracks}
+              onRemove = {this.removeTrack}/>
           </div>
         </div>
       </div>
