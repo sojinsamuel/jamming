@@ -33,9 +33,7 @@ const Spotify = {
         const searchLink =`https://api.spotify.com/v1/search?type=track&q=T${term}`;
 
         return fetch(searchLink, { headers:{Authorization: `Bearer ${accessToken}`} }
-        ).then(response => {
-            response.json();
-            }
+        ).then(response => {response.json();}
         ).then(jsonResponse=>{
             if(!jsonResponse.tracks){
                 return [];
