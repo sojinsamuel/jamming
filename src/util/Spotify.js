@@ -1,3 +1,4 @@
+import {clientID, redirectURI} from './privateInfo';
 
 const userAccessToken;
 const Spotify = {
